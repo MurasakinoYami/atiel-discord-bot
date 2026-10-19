@@ -1,0 +1,16 @@
+[Unit]
+Description=Atiel Asmodians Discord bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/atielbot
+EnvironmentFile=/opt/atielbot/.env
+ExecStart=/opt/atielbot/venv/bin/python -u bot.py
+Restart=always
+RestartSec=10
+MemoryMax=350M
+
+[Install]
+WantedBy=multi-user.target
